@@ -509,7 +509,7 @@ class ClusterBlockingConnectionPool(ClusterConnectionPool):
 
         except Empty:
             # queue is full of connections to other nodes
-            if len(connections_to_other_nodes) == self.max_connections:
+            if len(connections_to_other_nodes) > 0:
                 # is the earliest released / longest un-used connection
                 connection_to_clear = connections_to_other_nodes.pop()
                 self._connections.remove(connection_to_clear)
