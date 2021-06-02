@@ -647,7 +647,8 @@ class RedisCluster(Redis):
             except ConnectionError:
                 log.exception("ConnectionError")
 
-                connection.disconnect()
+                if connection is not None:
+                    connection.disconnect()
                 connection_error_retry_counter += 1
 
                 # Give the node 0.1 seconds to get back up and retry again with same
