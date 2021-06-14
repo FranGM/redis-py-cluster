@@ -33,7 +33,7 @@ def int_or_str(value):
 
 
 # Major, Minor, Fix version
-__version__ = '2.1.2+reddit5'
+__version__ = '2.1.2+reddit6'
 VERSION = tuple(map(int_or_str, __version__.split('.')))
 
 __all__ = [
